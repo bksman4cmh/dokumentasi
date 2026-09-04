@@ -32,142 +32,142 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    .swiper-pagination-bullet-active {
-      background-color: #eab308 !important;
-      width: 24px !important;
-      border-radius: 8px !important;
+    .swiper-button-next, .swiper-button-prev {
+      color: #eab308 !important;
+      background: rgba(15, 7, 22, 0.8);
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 9999px;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      backdrop-filter: blur(4px);
     }
-    .swiper-pagination-bullet {
-      background-color: #a855f7;
+    .swiper-button-next:after, .swiper-button-prev:after {
+      font-size: 16px !important;
+      font-weight: bold;
+    }
+    .swiper-pagination-fraction {
+      color: #eab308;
+      font-weight: 700;
+      font-size: 0.85rem;
+      position: relative;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body class="bg-mgbk-dark text-slate-100 font-sans antialiased min-h-screen pb-20 overflow-x-hidden">
 
-  <!-- 1. HEADER DENGAN LOGO MGBK -->
-  <header class="py-6 px-4 bg-gradient-to-r from-mgbk-violet via-mgbk-blue to-mgbk-dark border-b border-purple-800/50 shadow-2xl sticky top-0 z-40 backdrop-blur-md bg-opacity-95">
+  <!-- HEADER DENGAN LOGO -->
+  <header class="py-5 px-4 bg-gradient-to-r from-mgbk-violet via-mgbk-blue to-mgbk-dark border-b border-purple-800/50 shadow-2xl sticky top-0 z-40 backdrop-blur-md bg-opacity-95">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-      <div class="flex items-center gap-4">
-        <!-- Logo MGBK -->
-        <img src="logo.jpg" alt="Logo MGBK" class="w-14 h-14 md:w-16 md:h-16 object-contain rounded-full ring-2 ring-mgbk-yellow bg-mgbk-blue p-1 shadow-lg" />
+      <div class="flex items-center gap-3 md:gap-4">
+        <img src="logo.jpg" alt="Logo MGBK" class="w-12 h-12 md:w-14 md:h-14 object-contain rounded-full ring-2 ring-mgbk-yellow bg-mgbk-blue p-1 shadow-lg" />
         <div>
-          <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2 justify-center sm:justify-start">
-            MGBK <span class="text-mgbk-yellow">MEDIA & DOKUMENTASI</span>
+          <h1 class="text-xl md:text-2xl font-extrabold tracking-tight text-white flex items-center gap-2 justify-center sm:justify-start">
+            MGBK <span class="text-mgbk-yellow">MEDIA & IT</span>
           </h1>
-          <p class="text-purple-300 text-xs md:text-sm font-medium">Majelis Guru Bimbingan dan Konseling</p>
+          <p class="text-purple-300 text-xs font-medium">Musyawarah Guru Bimbingan dan Konseling</p>
         </div>
       </div>
-      <a href="#kegiatan-section" class="bg-mgbk-yellow hover:bg-yellow-400 text-mgbk-dark font-bold text-xs md:text-sm px-5 py-2.5 rounded-full shadow-lg transition-all flex items-center gap-2">
+      <a href="#kegiatan-section" class="bg-mgbk-yellow hover:bg-yellow-400 text-mgbk-dark font-bold text-xs px-4 py-2 rounded-full shadow-lg transition-all flex items-center gap-2">
         <i class="fa-solid fa-images"></i> Lihat Galeri
       </a>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-8 space-y-16">
+  <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
 
-    <!-- 2. A. PROFIL & VIDEO EMBED -->
-    <section class="bg-gradient-to-br from-purple-950/60 to-mgbk-blue/60 border border-purple-800/40 rounded-3xl p-6 md:p-8 shadow-2xl backdrop-blur-sm">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <!-- Text Profil -->
-        <div class="lg:col-span-6 space-y-4">
+    <!-- PROFIL & VIDEO YOUTUBE EMBED FIX -->
+    <section class="bg-gradient-to-br from-purple-950/60 to-mgbk-blue/60 border border-purple-800/40 rounded-3xl p-5 md:p-8 shadow-2xl backdrop-blur-sm">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-6 space-y-3">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/80 border border-purple-500/30 text-mgbk-yellow text-xs font-semibold">
             <i class="fa-solid fa-bullhorn"></i> Selamat Datang
           </div>
           <h2 class="text-2xl md:text-3xl font-bold text-white">Profil MGBK</h2>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Majelis Guru Bimbingan dan Konseling (MGBK) merupakan wadah profesional bagi para guru BK untuk saling berbagi ilmu, meningkatkan kompetensi, serta mendokumentasikan berbagai kegiatan bimbingan dan pengembangan siswa secara berkelanjutan.
+          <p class="text-slate-300 text-xs md:text-sm leading-relaxed">
+            Musyawarah Guru Bimbingan dan Konseling (MGBK) merupakan wadah profesional bagi para guru BK untuk saling berbagi ilmu, meningkatkan kompetensi, serta mendokumentasikan berbagai kegiatan bimbingan dan pengembangan siswa.
           </p>
-          <div class="pt-2 flex flex-wrap gap-3 text-xs text-purple-200">
-            <span class="bg-purple-900/40 px-3 py-1.5 rounded-xl border border-purple-700/40"><i class="fa-solid fa-check text-mgbk-yellow mr-1"></i> Profesional</span>
-            <span class="bg-purple-900/40 px-3 py-1.5 rounded-xl border border-purple-700/40"><i class="fa-solid fa-check text-mgbk-yellow mr-1"></i> Kolaboratif</span>
-            <span class="bg-purple-900/40 px-3 py-1.5 rounded-xl border border-purple-700/40"><i class="fa-solid fa-check text-mgbk-yellow mr-1"></i> Inovatif</span>
+          <div class="pt-2 flex flex-wrap gap-2 text-xs text-purple-200">
+            <span class="bg-purple-900/40 px-2.5 py-1 rounded-lg border border-purple-700/40"><i class="fa-solid fa-check text-mgbk-yellow mr-1"></i> Profesional</span>
+            <span class="bg-purple-900/40 px-2.5 py-1 rounded-lg border border-purple-700/40"><i class="fa-solid fa-check text-mgbk-yellow mr-1"></i> Kolaboratif</span>
+            <span class="bg-purple-900/40 px-2.5 py-1 rounded-lg border border-purple-700/40"><i class="fa-solid fa-check text-mgbk-yellow mr-1"></i> Inovatif</span>
           </div>
         </div>
 
-        <!-- Embed Video Profil YouTube -->
+        <!-- YouTube Embed Parser Fix -->
         <div class="lg:col-span-6">
-          <div class="relative aspect-video w-full rounded-2xl overflow-hidden border-2 border-purple-500/30 shadow-2xl bg-black">
-            <!-- Ganti src link youtube profil kamu jika ada -->
-            <iframe class="w-full h-full" src="https://youtu.be/5K3Xt6ODsDY?si=WrzZYc4ipEL2dcpb" title="Video Profil MGBK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="relative aspect-video w-full rounded-2xl overflow-hidden border border-purple-500/30 shadow-2xl bg-black">
+            <iframe id="profile-youtube-iframe" class="w-full h-full" src="" title="Video Profil MGBK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. B. AKUN MEDIA SOSIAL (DIRECT FOLLOW CARDS) -->
+    <!-- MEDIA SOSIAL CARDS -->
     <section>
-      <div class="text-center mb-6">
-        <h3 class="text-xl md:text-2xl font-bold text-white">Ikuti Media Sosial Kami</h3>
-        <p class="text-slate-400 text-xs md:text-sm mt-1">Dapatkan informasi terbaru melalui platform resmi kami</p>
+      <div class="text-center mb-5">
+        <h3 class="text-lg md:text-xl font-bold text-white">Ikuti Media Sosial Kami</h3>
+        <p class="text-slate-400 text-xs mt-1">Dapatkan informasi terbaru melalui platform resmi kami</p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- Instagram -->
-        <a href="instagram.com/mgbk_indonesia" target="_blank" class="group bg-gradient-to-br from-pink-600/20 to-purple-900/30 border border-pink-500/30 hover:border-pink-500 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 shadow-lg">
-          <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 flex items-center justify-center text-white text-xl mb-3 shadow-md group-hover:scale-110 transition-transform">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+        <a href="https://instagram.com//mgbk_indonesia" target="_blank" class="group bg-gradient-to-br from-pink-600/20 to-purple-900/30 border border-pink-500/30 hover:border-pink-500 p-3.5 rounded-2xl flex flex-col items-center text-center transition-all shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 flex items-center justify-center text-white text-lg mb-2 shadow-md">
             <i class="fa-brands fa-instagram"></i>
           </div>
-          <span class="font-bold text-sm text-white">Instagram</span>
-          <span class="text-xs text-slate-400 mt-1">@mgbk_indonesia</span>
-          <span class="mt-3 text-[11px] font-semibold bg-pink-600 text-white px-3 py-1 rounded-full group-hover:bg-pink-500 transition-colors">Follow</span>
+          <span class="font-bold text-xs text-white">Instagram</span>
+          <span class="text-[10px] text-slate-400 mt-0.5">@mgbk_official</span>
+          <span class="mt-2.5 text-[10px] font-semibold bg-pink-600 text-white px-3 py-0.5 rounded-full">Follow</span>
         </a>
 
-        <!-- YouTube -->
-        <a href="www.youtube.com/@mgbkindonesia720" target="_blank" class="group bg-gradient-to-br from-red-600/20 to-purple-900/30 border border-red-500/30 hover:border-red-500 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 shadow-lg">
-          <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white text-xl mb-3 shadow-md group-hover:scale-110 transition-transform">
+        <a href="https://youtube.com/@mgbkindonesia720" target="_blank" class="group bg-gradient-to-br from-red-600/20 to-purple-900/30 border border-red-500/30 hover:border-red-500 p-3.5 rounded-2xl flex flex-col items-center text-center transition-all shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white text-lg mb-2 shadow-md">
             <i class="fa-brands fa-youtube"></i>
           </div>
-          <span class="font-bold text-sm text-white">YouTube Channel</span>
-          <span class="text-xs text-slate-400 mt-1">MGBK Official</span>
-          <span class="mt-3 text-[11px] font-semibold bg-red-600 text-white px-3 py-1 rounded-full group-hover:bg-red-500 transition-colors">Subscribe</span>
+          <span class="font-bold text-xs text-white">YouTube</span>
+          <span class="text-[10px] text-slate-400 mt-0.5">MGBK Official</span>
+          <span class="mt-2.5 text-[10px] font-semibold bg-red-600 text-white px-3 py-0.5 rounded-full">Subscribe</span>
         </a>
 
-        <!-- TikTok -->
-        <a href="https://tiktok.com" target="_blank" class="group bg-gradient-to-br from-slate-700/20 to-purple-900/30 border border-slate-500/30 hover:border-cyan-400 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 shadow-lg">
-          <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-cyan-400 text-xl mb-3 shadow-md group-hover:scale-110 transition-transform">
+        <a href="https://tiktok.com" target="_blank" class="group bg-gradient-to-br from-slate-700/20 to-purple-900/30 border border-slate-500/30 hover:border-cyan-400 p-3.5 rounded-2xl flex flex-col items-center text-center transition-all shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-cyan-400 text-lg mb-2 shadow-md">
             <i class="fa-brands fa-tiktok"></i>
           </div>
-          <span class="font-bold text-sm text-white">TikTok</span>
-          <span class="text-xs text-slate-400 mt-1">@mgbk_kreatif</span>
-          <span class="mt-3 text-[11px] font-semibold bg-cyan-500 text-slate-950 px-3 py-1 rounded-full group-hover:bg-cyan-400 transition-colors">Follow</span>
+          <span class="font-bold text-xs text-white">TikTok</span>
+          <span class="text-[10px] text-slate-400 mt-0.5">@mgbk_kreatif</span>
+          <span class="mt-2.5 text-[10px] font-semibold bg-cyan-500 text-slate-950 px-3 py-0.5 rounded-full">Follow</span>
         </a>
 
-        <!-- Facebook / Web -->
-        <a href="https://facebook.com" target="_blank" class="group bg-gradient-to-br from-blue-600/20 to-purple-900/30 border border-blue-500/30 hover:border-blue-400 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 shadow-lg">
-          <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white text-xl mb-3 shadow-md group-hover:scale-110 transition-transform">
+        <a href="https://facebook.com" target="_blank" class="group bg-gradient-to-br from-blue-600/20 to-purple-900/30 border border-blue-500/30 hover:border-blue-400 p-3.5 rounded-2xl flex flex-col items-center text-center transition-all shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white text-lg mb-2 shadow-md">
             <i class="fa-brands fa-facebook-f"></i>
           </div>
-          <span class="font-bold text-sm text-white">Facebook Page</span>
-          <span class="text-xs text-slate-400 mt-1">MGBK Indonesia</span>
-          <span class="mt-3 text-[11px] font-semibold bg-blue-600 text-white px-3 py-1 rounded-full group-hover:bg-blue-500 transition-colors">Ikuti</span>
+          <span class="font-bold text-xs text-white">Facebook</span>
+          <span class="text-[10px] text-slate-400 mt-0.5">MGBK Indonesia</span>
+          <span class="mt-2.5 text-[10px] font-semibold bg-blue-600 text-white px-3 py-0.5 rounded-full">Ikuti</span>
         </a>
       </div>
     </section>
 
-    <!-- 2. C. DOKUMENTASI & GALERI -->
-    <section id="kegiatan-section" class="pt-4">
-      
-      <!-- MENU PILIH KEGIATAN -->
-      <div class="mb-10 text-center">
+    <!-- DOKUMENTASI -->
+    <section id="kegiatan-section">
+      <div class="mb-8 text-center">
         <span class="text-xs font-bold text-mgbk-yellow uppercase tracking-widest bg-purple-950/80 border border-purple-700/60 px-4 py-1.5 rounded-full inline-block mb-3">
           <i class="fa-solid fa-filter mr-1"></i> Pilih Kegiatan
         </span>
-        <div id="category-filters" class="flex flex-wrap justify-center gap-2.5 md:gap-3 max-w-4xl mx-auto">
-          <!-- Buttons generated by JS -->
-        </div>
+        <div id="category-filters" class="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto"></div>
       </div>
 
-      <!-- SEKSI FOTO -->
-      <div class="mb-14">
-        <div class="mb-6 border-b border-purple-900/60 pb-3 flex items-center justify-between">
-          <h2 class="text-lg md:text-xl font-bold text-mgbk-yellow flex items-center gap-2">
+      <!-- GALERI FOTO -->
+      <div class="mb-12">
+        <div class="mb-4 border-b border-purple-900/60 pb-3 flex items-center justify-between">
+          <h2 class="text-lg font-bold text-mgbk-yellow flex items-center gap-2">
             <i class="fa-regular fa-images"></i> Galeri Foto
           </h2>
           <span id="current-activity-title" class="text-slate-400 text-xs"></span>
         </div>
 
-        <!-- Carousel Multi-Card Responsive -->
-        <div class="relative px-2">
+        <div class="relative px-1">
           <div class="swiper mySwiperFoto overflow-hidden rounded-2xl">
             <div class="swiper-wrapper" id="photo-container">
               <div class="text-center w-full py-12 text-slate-400">
@@ -175,25 +175,28 @@
                 <p class="text-xs">Memuat data...</p>
               </div>
             </div>
-            <div class="swiper-pagination-foto text-center mt-6"></div>
+            <!-- Fraction Pagination Modern (Anti-Crash) -->
+            <div class="swiper-pagination-foto"></div>
+            <div class="swiper-button-next swiper-btn-foto-next"></div>
+            <div class="swiper-button-prev swiper-btn-foto-prev"></div>
           </div>
         </div>
       </div>
 
-      <!-- SEKSI VIDEO -->
+      <!-- GALERI VIDEO -->
       <div id="video-section" class="hidden">
-        <div class="mb-6 border-b border-purple-900/60 pb-3">
-          <h2 class="text-lg md:text-xl font-bold text-red-400 flex items-center gap-2">
+        <div class="mb-4 border-b border-purple-900/60 pb-3">
+          <h2 class="text-lg font-bold text-red-400 flex items-center gap-2">
             <i class="fa-solid fa-circle-play"></i> Dokumentasi Video
           </h2>
         </div>
 
-        <div class="relative px-2">
+        <div class="relative px-1">
           <div class="swiper mySwiperVideo overflow-hidden rounded-2xl">
-            <div class="swiper-wrapper" id="video-container">
-              <!-- Video Slides -->
-            </div>
-            <div class="swiper-pagination-video text-center mt-6"></div>
+            <div class="swiper-wrapper" id="video-container"></div>
+            <div class="swiper-pagination-video"></div>
+            <div class="swiper-button-next swiper-btn-video-next"></div>
+            <div class="swiper-button-prev swiper-btn-video-prev"></div>
           </div>
         </div>
       </div>
@@ -210,7 +213,7 @@
       </button>
       <img id="modal-img" src="" class="max-h-[80vh] w-auto rounded-xl border border-purple-700 shadow-2xl object-contain" />
       <div class="mt-4">
-        <button id="modal-download-btn" onclick="directDownload()" class="bg-mgbk-yellow hover:bg-yellow-400 text-mgbk-dark font-bold px-6 py-2 rounded-full text-xs md:text-sm shadow-xl flex items-center gap-2">
+        <button id="modal-download-btn" onclick="directDownload()" class="bg-mgbk-yellow hover:bg-yellow-400 text-mgbk-dark font-bold px-6 py-2 rounded-full text-xs shadow-xl flex items-center gap-2">
           <i class="fa-solid fa-download"></i> Download Foto
         </button>
       </div>
@@ -234,12 +237,21 @@
 
   <script>
     const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxzEHb5DqayWnhAnuG8ujbFFiYh2C3mwjdPGjo9U1pM-61nRnotJ9S80RAFBrKTaONr/exec";
+    // Tulis link YouTube biasa di sini, sistem otomatis ubah ke embed format
+    const YOUTUBE_PROFIL_URL = "https://youtu.be/5K3Xt6ODsDY?si=WrzZYc4ipEL2dcpb"; 
     
     let rawData = [];
     let groupedData = {};
     let swiperFotoInstance = null;
     let swiperVideoInstance = null;
     let currentDownloadUrl = "";
+
+    function parseYouTubeEmbed(url) {
+      if (!url) return "";
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? `https://www.youtube.com/embed/${match[2]}` : url;
+    }
 
     function formatDate(rawDate) {
       if (!rawDate) return '';
@@ -253,9 +265,7 @@
       let cleanUrl = url.trim();
 
       if (cleanUrl.includes('youtube.com') || cleanUrl.includes('youtu.be')) {
-        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-        const match = cleanUrl.match(regExp);
-        return (match && match[2].length === 11) ? `https://www.youtube.com/embed/${match[2]}?autoplay=1` : cleanUrl;
+        return parseYouTubeEmbed(cleanUrl) + "?autoplay=1";
       }
       
       if (cleanUrl.includes('drive.google.com') || cleanUrl.includes('lh3.googleusercontent.com')) {
@@ -267,6 +277,9 @@
 
       return cleanUrl;
     }
+
+    // Load Profil YouTube Video
+    document.getElementById('profile-youtube-iframe').src = parseYouTubeEmbed(YOUTUBE_PROFIL_URL);
 
     async function loadData() {
       try {
@@ -323,7 +336,7 @@
       const items = groupedData[categoryName];
       document.getElementById('current-activity-title').innerText = `${items.length} Foto`;
 
-      // 1. RENDER FOTO CARDS
+      // 1. RENDER FOTO CARDS DENGAN LAZY LOADING
       const photoContainer = document.getElementById('photo-container');
       photoContainer.innerHTML = '';
 
@@ -333,12 +346,12 @@
             <div class="swiper-slide h-auto">
               <div class="bg-purple-950/40 border border-purple-800/40 rounded-2xl overflow-hidden shadow-xl flex flex-col h-full hover:border-mgbk-yellow/50 transition-colors">
                 <div class="relative group bg-black cursor-pointer aspect-[4/3] overflow-hidden" onclick="openModal('${item.gambarUrl}')">
-                  <img src="${item.gambarUrl}" alt="${item.judul}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img src="${item.gambarUrl}" alt="${item.judul}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold">
                     <i class="fa-solid fa-expand text-base mr-1"></i> Lihat Foto
                   </div>
                 </div>
-                <div class="p-4 flex flex-col justify-between flex-grow">
+                <div class="p-3.5 flex flex-col justify-between flex-grow">
                   <p class="text-slate-200 text-xs line-clamp-2 mb-2 leading-relaxed">${item.deskripsi || item.judul}</p>
                   <span class="text-[10px] text-mgbk-yellow font-semibold flex items-center gap-1">
                     <i class="fa-regular fa-calendar-check"></i> ${formatDate(item.tanggal)}
@@ -351,16 +364,22 @@
         }
       });
 
-      // Swiper Responsive Config (1 card di HP, 2 di Tablet, 3 di Desktop)
       if (swiperFotoInstance) swiperFotoInstance.destroy(true, true);
       swiperFotoInstance = new Swiper(".mySwiperFoto", {
         slidesPerView: 1,
-        spaceBetween: 16,
+        spaceBetween: 14,
         breakpoints: {
-          640: { slidesPerView: 2, spaceBetween: 20 },
-          1024: { slidesPerView: 3, spaceBetween: 24 }
+          640: { slidesPerView: 2, spaceBetween: 18 },
+          1024: { slidesPerView: 3, spaceBetween: 20 }
         },
-        pagination: { el: ".swiper-pagination-foto", clickable: true }
+        pagination: { 
+          el: ".swiper-pagination-foto", 
+          type: "fraction" 
+        },
+        navigation: {
+          nextEl: ".swiper-btn-foto-next",
+          prevEl: ".swiper-btn-foto-prev"
+        }
       });
 
       // 2. RENDER VIDEO CARDS
@@ -379,7 +398,7 @@
             <div class="swiper-slide h-auto">
               <div class="bg-purple-950/40 border border-purple-800/40 rounded-2xl overflow-hidden shadow-xl p-3 flex flex-col h-full hover:border-red-500/50 transition-colors">
                 <div class="relative aspect-video w-full rounded-xl overflow-hidden bg-black cursor-pointer group mb-3" onclick="openVideoModal('${embedVideo}')">
-                  <img src="${item.gambarUrl}" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-300" />
+                  <img src="${item.gambarUrl}" loading="lazy" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center group-hover:scale-110 transition-all shadow-xl">
                       <i class="fa-solid fa-play ml-1"></i>
@@ -396,12 +415,19 @@
         if (swiperVideoInstance) swiperVideoInstance.destroy(true, true);
         swiperVideoInstance = new Swiper(".mySwiperVideo", {
           slidesPerView: 1,
-          spaceBetween: 16,
+          spaceBetween: 14,
           breakpoints: {
-            640: { slidesPerView: 2, spaceBetween: 20 },
-            1024: { slidesPerView: 3, spaceBetween: 24 }
+            640: { slidesPerView: 2, spaceBetween: 18 },
+            1024: { slidesPerView: 3, spaceBetween: 20 }
           },
-          pagination: { el: ".swiper-pagination-video", clickable: true }
+          pagination: { 
+            el: ".swiper-pagination-video", 
+            type: "fraction" 
+          },
+          navigation: {
+            nextEl: ".swiper-btn-video-next",
+            prevEl: ".swiper-btn-video-prev"
+          }
         });
 
       } else {
