@@ -278,7 +278,6 @@
       return cleanUrl;
     }
 
-    // Load Profil YouTube Video
     document.getElementById('profile-youtube-iframe').src = parseYouTubeEmbed(YOUTUBE_PROFIL_URL);
 
     async function loadData() {
@@ -336,38 +335,44 @@
       const items = groupedData[categoryName];
       document.getElementById('current-activity-title').innerText = `${items.length} Foto`;
 
-      // 1. RENDER FOTO CARDS DENGAN LAZY LOADING
-      const photoContainer = document.getElementById('photo-container');
-      photoContainer.innerHTML = '';
+      // Hancurkan instance lama agar RAM iPhone bersih
+      if (swiperFotoInstance) {
+        swiperFotoInstance.destroy(true, true);
+        swiperFotoInstance = null;
+      }
 
-      items.forEach(item => {
-        if (item.gambarUrl) {
-          const slideHtml = `
-            <div class="swiper-slide h-auto">
-              <div class="bg-purple-950/40 border border-purple-800/40 rounded-2xl overflow-hidden shadow-xl flex flex-col h-full hover:border-mgbk-yellow/50 transition-colors">
-                <div class="relative group bg-black cursor-pointer aspect-[4/3] overflow-hidden" onclick="openModal('${item.gambarUrl}')">
-                  <img src="${item.gambarUrl}" alt="${item.judul}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                  <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold">
-                    <i class="fa-solid fa-expand text-base mr-1"></i> Lihat Foto
-                  </div>
-                </div>
-                <div class="p-3.5 flex flex-col justify-between flex-grow">
-                  <p class="text-slate-200 text-xs line-clamp-2 mb-2 leading-relaxed">${item.deskripsi || item.judul}</p>
-                  <span class="text-[10px] text-mgbk-yellow font-semibold flex items-center gap-1">
-                    <i class="fa-regular fa-calendar-check"></i> ${formatDate(item.tanggal)}
-                  </span>
-                </div>
+      // Filter item ber-gambar
+      const photoItems = items.filter(i => i.gambarUrl);
+
+      // Siapkan HTML slide hanya untuk Virtual Swiper
+      const photoSlidesHtml = photoItems.map(item => `
+        <div class="swiper-slide h-auto">
+          <div class="bg-purple-950/40 border border-purple-800/40 rounded-2xl overflow-hidden shadow-xl flex flex-col h-full hover:border-mgbk-yellow/50 transition-colors">
+            <div class="relative group bg-black cursor-pointer aspect-[4/3] overflow-hidden" onclick="openModal('${item.gambarUrl}')">
+              <img src="${item.gambarUrl}" alt="${item.judul}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold">
+                <i class="fa-solid fa-expand text-base mr-1"></i> Lihat Foto
               </div>
             </div>
-          `;
-          photoContainer.insertAdjacentHTML('beforeend', slideHtml);
-        }
-      });
+            <div class="p-3.5 flex flex-col justify-between flex-grow">
+              <p class="text-slate-200 text-xs line-clamp-2 mb-2 leading-relaxed">${item.deskripsi || item.judul}</p>
+              <span class="text-[10px] text-mgbk-yellow font-semibold flex items-center gap-1">
+                <i class="fa-regular fa-calendar-check"></i> ${formatDate(item.tanggal)}
+              </span>
+            </div>
+          </div>
+        </div>
+      `);
 
-      if (swiperFotoInstance) swiperFotoInstance.destroy(true, true);
+      // Inisialisasi Swiper dengan Virtual Slides
       swiperFotoInstance = new Swiper(".mySwiperFoto", {
         slidesPerView: 1,
         spaceBetween: 14,
+        virtual: {
+          slides: photoSlidesHtml,
+          addSlidesAfter: 2,
+          addSlidesBefore: 2
+        },
         breakpoints: {
           640: { slidesPerView: 2, spaceBetween: 18 },
           1024: { slidesPerView: 3, spaceBetween: 20 }
@@ -382,10 +387,15 @@
         }
       });
 
-      // 2. RENDER VIDEO CARDS
+      // RENDER VIDEO CARDS
       const videoSection = document.getElementById('video-section');
       const videoContainer = document.getElementById('video-container');
       videoContainer.innerHTML = '';
+
+      if (swiperVideoInstance) {
+        swiperVideoInstance.destroy(true, true);
+        swiperVideoInstance = null;
+      }
 
       const videoItems = items.filter(i => i.videoUrl && i.videoUrl.trim() !== '');
 
@@ -412,7 +422,6 @@
           videoContainer.insertAdjacentHTML('beforeend', videoSlideHtml);
         });
 
-        if (swiperVideoInstance) swiperVideoInstance.destroy(true, true);
         swiperVideoInstance = new Swiper(".mySwiperVideo", {
           slidesPerView: 1,
           spaceBetween: 14,
