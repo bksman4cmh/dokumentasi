@@ -12,40 +12,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    /* Styling ukuran Card Slideshow */
+    /* Styling ukuran Card Slide */
     .swiper-slide {
       width: 100%;
-      max-width: 850px;
-      height: auto;
+      max-width: 800px;
     }
     /* Custom Pagination Styling */
     .swiper-pagination-fraction {
       color: #38bdf8;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1rem;
       letter-spacing: 2px;
-      bottom: -40px !important;
+      position: relative;
+      margin-top: 20px;
     }
   </style>
 </head>
-<body class="bg-slate-950 text-white font-sans antialiased min-h-screen pb-20">
+<body class="bg-slate-950 text-white font-sans antialiased min-h-screen pb-20 overflow-x-hidden">
 
   <!-- Header Section -->
-  <header class="py-12 text-center bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-950 border-b border-slate-800">
-    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">MEDIA & IT HUB</h1>
-    <p class="text-blue-300 mt-2 text-sm md:text-base">Dokumentasi Kegiatan, Karya Video & Galeri Digital</p>
+  <header class="py-10 text-center bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-950 border-b border-slate-800">
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">MEDIA & IT HUB</h1>
+    <p class="text-blue-300 mt-2 text-sm">Dokumentasi Kegiatan, Karya Video & Galeri Digital</p>
   </header>
 
   <!-- Section Card Slideshow -->
-  <section class="max-w-6xl mx-auto py-12 px-4 relative">
-    <div class="mb-8 text-center md:text-left">
-      <h2 class="text-2xl md:text-3xl font-bold text-sky-400">Dokumentasi Unggulan</h2>
-      <p class="text-slate-400 text-sm">Geser atau pakai panah untuk melihat dokumentasi kegiatan</p>
+  <section class="max-w-5xl mx-auto py-10 px-4">
+    <div class="mb-6 text-center">
+      <h2 class="text-2xl font-bold text-sky-400">Dokumentasi Unggulan</h2>
+      <p class="text-slate-400 text-xs md:text-sm">Geser atau gunakan tombol panah untuk menjelajah</p>
     </div>
 
     <!-- Swiper Container Wrapper -->
-    <div class="relative px-2 md:px-10">
-      <div class="swiper mySwiper overflow-visible">
+    <div class="relative px-2 md:px-12">
+      <div class="swiper mySwiper overflow-hidden rounded-2xl">
         <div class="swiper-wrapper" id="card-container">
           <!-- Loader -->
           <div class="text-center w-full py-20 text-slate-400">
@@ -55,26 +55,28 @@
         </div>
       </div>
 
-      <!-- Custom Pagination & Navigasi Panah Keren -->
+      <!-- Navigasi Panah Kiri-Kanan Modern -->
+      <button id="btn-prev" class="absolute top-1/2 left-0 -translate-y-1/2 z-20 bg-slate-800/90 hover:bg-sky-600 text-white w-10 h-10 rounded-full border border-slate-700 backdrop-blur-md flex items-center justify-center transition-all shadow-lg">
+        <i class="fa-solid fa-chevron-left text-sm"></i>
+      </button>
+      <button id="btn-next" class="absolute top-1/2 right-0 -translate-y-1/2 z-20 bg-slate-800/90 hover:bg-sky-600 text-white w-10 h-10 rounded-full border border-slate-700 backdrop-blur-md flex items-center justify-center transition-all shadow-lg">
+        <i class="fa-solid fa-chevron-right text-sm"></i>
+      </button>
+
+      <!-- Custom Pagination -->
       <div class="swiper-pagination"></div>
-      <button id="btn-prev" class="absolute top-1/2 -left-2 md:left-0 -translate-y-1/2 z-20 bg-slate-800/80 hover:bg-sky-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-600 backdrop-blur-md flex items-center justify-center transition-all shadow-lg">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-      <button id="btn-next" class="absolute top-1/2 -right-2 md:right-0 -translate-y-1/2 z-20 bg-slate-800/80 hover:bg-sky-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-600 backdrop-blur-md flex items-center justify-center transition-all shadow-lg">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
     </div>
   </section>
 
   <!-- MODAL / LIGHTBOX PREVIEW FOTO -->
   <div id="image-modal" class="fixed inset-0 z-50 bg-black/90 hidden backdrop-blur-md flex items-center justify-center p-4">
     <div class="relative max-w-4xl w-full flex flex-col items-center">
-      <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-red-400 text-2xl">
+      <button onclick="closeModal()" class="absolute -top-10 right-0 text-white hover:text-red-400 text-xl font-bold flex items-center gap-1">
         <i class="fa-solid fa-xmark"></i> Tutup
       </button>
       <img id="modal-img" src="" class="max-h-[80vh] w-auto rounded-lg shadow-2xl border border-slate-700 object-contain" />
-      <div class="mt-4 flex gap-4">
-        <a id="modal-download" href="" download target="_blank" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-6 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-all">
+      <div class="mt-4">
+        <a id="modal-download" href="" download target="_blank" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-5 py-2 rounded-full flex items-center gap-2 text-sm shadow-lg transition-all">
           <i class="fa-solid fa-download"></i> Download Foto
         </a>
       </div>
@@ -85,18 +87,15 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
-    // URL Deployment Apps Script
     const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxzEHb5DqayWnhAnuG8ujbFFiYh2C3mwjdPGjo9U1pM-61nRnotJ9S80RAFBrKTaONr/exec";
 
-    // Helper merapikan tampilan tanggal
     function formatDate(rawDate) {
       if (!rawDate) return '';
       const date = new Date(rawDate);
-      if (isNaN(date.getTime())) return rawDate; // jika sudah berupa teks
+      if (isNaN(date.getTime())) return rawDate;
       return date.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
     }
 
-    // Helper Ekstraksi Embed Video Youtube / Drive
     function getEmbedUrl(url) {
       if (!url) return null;
       if (url.includes('youtube.com') || url.includes('youtu.be')) {
@@ -120,39 +119,39 @@
           const embedVideo = getEmbedUrl(item.videoUrl);
 
           const slideHtml = `
-            <div class="swiper-slide bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 grid grid-cols-1 md:grid-cols-12 gap-0">
+            <div class="swiper-slide bg-slate-900 rounded-2xl overflow-hidden shadow-xl border border-slate-800 grid grid-cols-1 md:grid-cols-12">
               
-              <!-- Kolom Kiri: Foto Rasio 4:3 dengan fungsi Preview Klik -->
-              <div class="md:col-span-5 relative group bg-black cursor-pointer overflow-hidden aspect-[4/3] md:aspect-auto" onclick="openModal('${item.gambarUrl}')">
+              <!-- Kolom Kiri: Foto Rasio 4:3 -->
+              <div class="md:col-span-6 relative group bg-black cursor-pointer overflow-hidden aspect-[4/3]" onclick="openModal('${item.gambarUrl}')">
                 <img src="${item.gambarUrl}" alt="${item.judul}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-sm">
-                  <i class="fa-solid fa-expand text-xl"></i> Klik untuk Perbesar
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-xs md:text-sm">
+                  <i class="fa-solid fa-expand text-lg"></i> Klik untuk Perbesar
                 </div>
               </div>
 
-              <!-- Kolom Kanan: Detail & Area Video terpisah -->
-              <div class="md:col-span-7 p-5 md:p-6 flex flex-col justify-between bg-slate-900">
+              <!-- Kolom Kanan: Detail & Video -->
+              <div class="md:col-span-6 p-5 flex flex-col justify-between bg-slate-900 border-t md:border-t-0 md:border-l border-slate-800">
                 <div>
-                  <div class="flex items-center justify-between gap-2 mb-2">
-                    <span class="text-xs font-semibold text-sky-400 bg-sky-950/80 border border-sky-800/50 px-3 py-1 rounded-full">
+                  <div class="mb-2">
+                    <span class="text-xs font-semibold text-sky-400 bg-sky-950 border border-sky-800/60 px-2.5 py-0.5 rounded-full inline-block">
                       <i class="fa-regular fa-calendar-check mr-1"></i> ${formattedDate}
                     </span>
                   </div>
-                  <h3 class="text-xl md:text-2xl font-bold text-white mb-2">${item.judul}</h3>
-                  <p class="text-slate-300 text-sm leading-relaxed mb-4 line-clamp-3">${item.deskripsi}</p>
+                  <h3 class="text-lg md:text-xl font-bold text-white mb-2 leading-snug">${item.judul}</h3>
+                  <p class="text-slate-300 text-xs md:text-sm leading-relaxed mb-3 line-clamp-3">${item.deskripsi}</p>
                 </div>
 
-                <!-- Bagian Khusus Video -->
-                <div class="mt-2 border-t border-slate-800 pt-3">
+                <!-- Bagian Video -->
+                <div class="border-t border-slate-800/80 pt-3">
                   ${embedVideo ? `
-                    <p class="text-xs text-slate-400 mb-2 font-medium flex items-center gap-1">
+                    <p class="text-xs text-slate-400 mb-1.5 font-medium flex items-center gap-1">
                       <i class="fa-solid fa-video text-red-500"></i> Dokumentasi Video:
                     </p>
                     <div class="aspect-video w-full rounded-lg overflow-hidden bg-black border border-slate-800">
                       <iframe src="${embedVideo}" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
                     </div>
                   ` : `
-                    <div class="text-xs text-slate-500 italic py-2">
+                    <div class="text-xs text-slate-500 italic py-1">
                       <i class="fa-solid fa-info-circle mr-1"></i> Tidak ada lampiran video
                     </div>
                   `}
@@ -164,13 +163,15 @@
           container.insertAdjacentHTML('beforeend', slideHtml);
         });
 
-        // Inisialisasi Swiper dengan Efek Card & Custom Pagination
+        // Inisialisasi Swiper dengan Efek Slide Smooth
         new Swiper(".mySwiper", {
-          effect: "cards",
+          slidesPerView: 1,
+          spaceBetween: 30,
+          loop: false,
           grabCursor: true,
           pagination: {
             el: ".swiper-pagination",
-            type: "fraction", // Mengubah titik-titik jadi penomoran angka elegan (cth: 1 / 5)
+            type: "fraction",
           },
           navigation: {
             nextEl: "#btn-next",
@@ -183,7 +184,6 @@
       }
     }
 
-    // Modal Lightbox Controller
     function openModal(imgUrl) {
       document.getElementById('modal-img').src = imgUrl;
       document.getElementById('modal-download').href = imgUrl;
